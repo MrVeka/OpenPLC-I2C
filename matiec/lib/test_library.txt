@@ -1,0 +1,39 @@
+(*
+* This is my custom blocks implementation
+*
+*
+* Test Block
+* ———–
+*)
+(* This block should get an integer at I0, sum
+10 to it and then output the sum at OUT
+*)
+FUNCTION_BLOCK TEST
+VAR_INPUT
+I0 : INT;
+ACTIVE : BOOL;
+END_VAR
+VAR_OUTPUT
+OUT : INT;
+END_VAR
+IF ACTIVE = TRUE THEN
+OUT := I0 + 10;
+END_IF;
+END_FUNCTION_BLOCK
+(*
+* Get the chip id thought I2C
+*
+*
+* BNO055
+* ———–
+*)
+(* Get the chip id thought I2C
+*)
+FUNCTION_BLOCK BNO055
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+CHIP_ID : BYTE;
+END_VAR
+CHIP_ID := 0xFF;
+END_FUNCTION_BLOCKs
