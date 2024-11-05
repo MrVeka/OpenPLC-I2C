@@ -64,7 +64,6 @@ typedef struct
     __DECLARE_VAR(BOOL, EN)
     __DECLARE_VAR(BOOL, ENO)
     __DECLARE_VAR(INT, I0)
-    __DECLARE_VAR(BOOL, ACTIVE)
     __DECLARE_VAR(INT, OUT)
 } BNO055;
 
@@ -74,7 +73,6 @@ static void TEST_init__(BNO055 *data__, BOOL retain)
     __INIT_VAR(data__->EN, __BOOL_LITERAL(TRUE), retain)
     __INIT_VAR(data__->ENO, __BOOL_LITERAL(TRUE), retain)
     __INIT_VAR(data__->I0, 0, retain)
-    __INIT_VAR(data__->ACTIVE, __BOOL_LITERAL(FALSE), retain)
     __INIT_VAR(data__->OUT, 0, retain)
 }
 // Define external C++/C function
@@ -99,12 +97,10 @@ static void BNO055_body__(BNO055 *data__)
 // Actual Code
 #define GetFbVar(var, ...) __GET_VAR(data__->var, __VA_ARGS__)
 #define SetFbVar(var, val, ...) __SET_VAR(data__->, var, __VA_ARGS__, val)
-    if (GetFbVar(ACTIVE))
-    {
-        SetFbVar(OUT, GetFbVar(I0) + 10);
-        // Call the C++/C function to print on Serial
-        print_number_on_serial(GetFbVar(OUT));
-    }
+
+    SetFbVar(OUT, GetFbVar(I0) + 10);
+    // Call the C++/C function to print on Serial
+    print_number_on_serial(GetFbVar(OUT));
 
 #undef GetFbVar
 #undef SetFbVar

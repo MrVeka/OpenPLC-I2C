@@ -65,22 +65,6 @@ END_IF;]]></xhtml:p>
       <pou name="BNO055" pouType="functionBlock">
         <interface>
           <inputVars>
-            <variable name="I0">
-              <type>
-                <INT />
-              </type>
-              <documentation>
-                <xhtml:p><![CDATA[Insert an integer here]]></xhtml:p>
-              </documentation>
-            </variable>
-            <variable name="ACTIVE">
-              <type>
-                <BOOL />
-              </type>
-              <documentation>
-                <xhtml:p><![CDATA[0 - block does nothing, 1 - block sums 10 to integer in I0]]></xhtml:p>
-              </documentation>
-            </variable>
           </inputVars>
           <outputVars>
             <variable name="OUT">
@@ -95,9 +79,8 @@ END_IF;]]></xhtml:p>
         </interface>
         <body>
           <ST>
-            <xhtml:p><![CDATA[IF ACTIVE = TRUE T HEN
-OUT := I0 + 10;
-END_IF;]]></xhtml:p>
+            <xhtml:p><![CDATA[OUT := I0 + 10;
+]]></xhtml:p>
           </ST>
         </body>
         <documentation>
