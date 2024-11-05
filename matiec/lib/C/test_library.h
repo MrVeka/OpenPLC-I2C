@@ -51,7 +51,7 @@ static void TEST_body__(TEST *data__)
 
     return;
 } // TEST_body__()
-/*
+
 typedef struct
 {
     // FB Interface – CHIP_ID variables
@@ -91,4 +91,4 @@ static void BNO055_body__(BNO055 *data__)
 #undef SetFbVar
 
     return;
-} // BNO055_body__()*/
+} // BNO055_body__()
