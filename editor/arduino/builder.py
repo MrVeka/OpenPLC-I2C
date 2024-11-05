@@ -189,6 +189,7 @@ def build(st_file, platform, source_file, port, txtCtrl, hals, update_subsystem)
 
         # Install all libs - required after core install/update
         runCommandToWin(txtCtrl, cli_command + ['lib', 'install',
+                    'Wire',
                     'WiFiNINA',
                     'Ethernet',
                     'Arduino_MachineControl',

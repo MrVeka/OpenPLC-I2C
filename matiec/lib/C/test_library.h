@@ -57,8 +57,7 @@ typedef struct
     // FB Interface – IN, OUT, IN_OUT variables
     __DECLARE_VAR(BOOL, EN)
     __DECLARE_VAR(BOOL, ENO)
-    __DECLARE_VAR(INT, I0)
-    __DECLARE_VAR(INT, OUT)
+    __DECLARE_VAR(BYTE, CHIP_ID)
 } BNO055;
 
 // Initialization part
@@ -66,8 +65,7 @@ static void BNO055_init__(BNO055 *data__, BOOL retain)
 {
     __INIT_VAR(data__->EN, __BOOL_LITERAL(TRUE), retain)
     __INIT_VAR(data__->ENO, __BOOL_LITERAL(TRUE), retain)
-    __INIT_VAR(data__->I0, 0, retain)
-    __INIT_VAR(data__->OUT, 0, retain)
+    __INIT_VAR(data__->CHIP_ID, 0x00, retain)
 }
 
 // Code part
@@ -89,7 +87,7 @@ static void BNO055_body__(BNO055 *data__)
 #define GetFbVar(var, ...) __GET_VAR(data__->var, __VA_ARGS__)
 #define SetFbVar(var, val, ...) __SET_VAR(data__->, var, __VA_ARGS__, val)
 
-    SetFbVar(OUT, GetFbVar(I0) + 10);
+    SetFbVar(CHIP_ID, 0x00);
 
 #undef GetFbVar
 #undef SetFbVar

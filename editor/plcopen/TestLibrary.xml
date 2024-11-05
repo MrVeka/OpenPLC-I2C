@@ -67,24 +67,24 @@ END_IF;]]></xhtml:p>
           <inputVars>
           </inputVars>
           <outputVars>
-            <variable name="OUT">
+            <variable name="CHIP_ID">
               <type>
-                <INT />
+                <BYTE />
               </type>
               <documentation>
-                <xhtml:p><![CDATA[This is the output: I0 + 10]]></xhtml:p>
+                <xhtml:p><![CDATA[Chip id : 0xA0]]></xhtml:p>
               </documentation>
             </variable>
           </outputVars>
         </interface>
         <body>
           <ST>
-            <xhtml:p><![CDATA[OUT := I0 + 10;
+            <xhtml:p><![CDATA[CHIP_ID := 0;
 ]]></xhtml:p>
           </ST>
         </body>
         <documentation>
-          <xhtml:p><![CDATA[This block outputs the sum of input I0 and 10.]]></xhtml:p>
+          <xhtml:p><![CDATA[This block ouput the chip id (0xA0) and 0x00 for error]]></xhtml:p>
         </documentation>
       </pou>
     </pous>

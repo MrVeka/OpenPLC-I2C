@@ -33,17 +33,6 @@ extern uint8_t pinMask_AOUT[];
 #include "modules/stm32can.c"
 #endif
 
-// Declare external C++/C function
-extern "C" void print_number_on_serial(uint16_t num);
-
-bool first_time_called = true;
-void print_number_on_serial(uint16_t num)
-{
-    if (first_time_called)
-    {
-        // Setup Serial port as this is the first time this function is called
-        Serial.begin(115200);
-        first_time_called = false;
-    }
-    Serial.print(num);
-}
+#ifdef USE_I2C_BLOCK
+#include "modules/test.c"
+#endif

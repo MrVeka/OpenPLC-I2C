@@ -654,8 +654,7 @@ class ArduinoUploadDialog(wx.Dialog):
         if 'define' in self.hals[board_type]:
             define_file += '#define '+ self.hals[board_type]['define'] +'\n'
 
-        define_file += '\n\n//Arduino Libraries\n'
-
+        define_file += '\n\n//Arduino Libraries ---\n'
         #Generate Arduino Libraries defines
         if (self.plc_program.find('DS18B20;') > 0) or (self.plc_program.find('DS18B20_2_OUT;') > 0) or (self.plc_program.find('DS18B20_3_OUT;') > 0) or (self.plc_program.find('DS18B20_4_OUT;') > 0) or (self.plc_program.find('DS18B20_5_OUT;') > 0):
             define_file += '#define USE_DS18B20_BLOCK\n'
@@ -679,6 +678,8 @@ class ArduinoUploadDialog(wx.Dialog):
             define_file += '#define USE_STM32CAN_BLOCK\n'
         if (self.plc_program.find('STM32CAN_READ;') > 0):
             define_file += '#define USE_STM32CAN_BLOCK\n'
+        if (self.plc_program.find('BNO055;') > 0) or (self.plc_program.find('Test') > 0):
+            define_file += '#define USE_I2C_BLOCK\n'
 
         #Generate Arduino Extension (sketch) define
         if self.arduino_sketch != None:
