@@ -65,27 +65,43 @@ END_IF;]]></xhtml:p>
       <pou name="BNO055" pouType="functionBlock">
         <interface>
           <inputVars>
-          </inputVars>
-          <outputVars>
-            <variable name="CHIP_ID">
+            <variable name="I0">
               <type>
-                <BYTE />
+                <INT />
               </type>
               <documentation>
-                <xhtml:p><![CDATA[Chip id : 0xA0]]></xhtml:p>
+                <xhtml:p><![CDATA[Insert an integer here]]></xhtml:p>
+              </documentation>
+            </variable>
+            <variable name="ACTIVE">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml:p><![CDATA[0 - block does nothing, 1 - block sums 10 to integer in I0]]></xhtml:p>
+              </documentation>
+            </variable>
+          </inputVars>
+          <outputVars>
+            <variable name="OUT">
+              <type>
+                <INT />
+              </type>
+              <documentation>
+                <xhtml:p><![CDATA[This is the output: I0 + 10]]></xhtml:p>
               </documentation>
             </variable>
           </outputVars>
         </interface>
         <body>
           <ST>
-            <xhtml:p><![CDATA[
-CHIP_ID := 0xFF;
-]]></xhtml:p>
+            <xhtml:p><![CDATA[IF ACTIVE = TRUE T HEN
+OUT := I0 + 10;
+END_IF;]]></xhtml:p>
           </ST>
         </body>
         <documentation>
-          <xhtml:p><![CDATA[This block ouput the chip id (0xA0) and 0xFF for error]]></xhtml:p>
+          <xhtml:p><![CDATA[This block outputs the sum of input I0 and 10.]]></xhtml:p>
         </documentation>
       </pou>
     </pous>
